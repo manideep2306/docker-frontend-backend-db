@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const mongoose = require("mongoose");
-const port = 3001;
+const port = 5000;
 const routes = require("./routes");
 
 main().catch((err) => console.log(err));
