@@ -3,12 +3,12 @@ services:
   web:
     build: ./frontend
     depends_on:
-      - Backend
+      - backend
     ports:
       - "8080:3000"
     networks:
       - network-frontend
-  Backend:
+  backend:
     build: ./backend
     depends_on:
       - mongo
