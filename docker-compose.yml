@@ -5,16 +5,17 @@ services:
     depends_on:
       - api
     ports:
-      - "3000:3000"
+      - "8080:3000"
     networks:
-      - network-backend
+      - network-frontend
   api:
     build: ./backend
     depends_on:
       - mongo
     ports:
-      - "3001:3001"
-    networks: 
+      - "5000:5000"  
+    networks:
+     - network-frontend
      - network-backend
   
   mongo:
@@ -25,13 +26,11 @@ services:
     environment: 
       MONGODB_INITDB_ROOT_USERNAME: username
       MONGODB_INITDB_ROOT_PASSWORD: password
-    # uncomment following lines to access db locally
-    # ports:
-    #   - 27017:27017
     networks: 
      - network-backend
 
 networks:
+  network-frontend:
   network-backend:
 
 volumes: 
